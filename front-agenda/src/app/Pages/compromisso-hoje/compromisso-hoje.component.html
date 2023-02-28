@@ -1,0 +1,19 @@
+<div>
+  <div class="boas-vindas">
+    <h1>Oi Usuário, veja seus compromissos de hoje</h1>
+  </div>
+  <div class="container">
+    <div class="compromissos-hoje">
+      <div class="card" style="width: 70rem;">
+        <h3>{{nomeDiaSemanaAtual}}, {{hoje | date:'dd'}} de {{ nomeMesAtual }} <a href="/compromisso-semana">Ver calendário completo</a></h3>
+        <div class="card-body" *ngFor="let compromisso of compromissos">
+          <h4><b>Cliente:</b> {{ compromisso.titulo }}</h4>
+          <h4><b>Hora:</b> {{compromisso.hora }}</h4>
+          <h4><b>Descrição:</b> {{compromisso.descricao }}</h4>
+          <button class="btn btn-primary">Ver Detalhes</button>
+        </div>
+      </div>
+    </div>
+    <button (click)="goToAllCompromissos()">Ver todos os compromissos</button>
+  </div>
+</div>

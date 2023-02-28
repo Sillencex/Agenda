@@ -1,0 +1,29 @@
+<div>
+    <h2>Compromissos do Mês</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="diasMes.length > 0; else semCompromissos">
+          <tr *ngFor="let dia of diasMes">
+            <td>{{ dia.data | date: 'dd/MM/yyyy' }}</td>
+            <td>
+              <ul>
+                <li *ngIf="dia.compromissos.length === 0">Nenhum compromisso neste dia</li>
+                <li *ngFor="let compromisso of dia.compromissos">{{ compromisso.descricao }}</li>
+              </ul>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-template #semCompromissos>
+          <tr>
+            <td colspan="2">Não há compromissos neste mês.</td>
+          </tr>
+        </ng-template>
+      </tbody>
+    </table>
+  </div>

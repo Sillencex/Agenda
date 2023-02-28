@@ -1,0 +1,24 @@
+<h1>Lista de Compromissos</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Título</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let compromisso of compromissos">
+            <td>{{ compromisso.id }}</td>
+            <td>{{ compromisso.data | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ compromisso.hora }}</td>
+            <td>{{ compromisso.titulo }}</td>
+            <td>{{ compromisso.descricao }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button (click)="goToCompromissoHoje()">Ver compromissos de Hoje</button>
